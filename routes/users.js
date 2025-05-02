@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const EarlyAccessUser = require('../models/Users');
+const EarlyAccessUser = require('../models/Users'); // Ensure that the model name is correct
 
 router.post('/register', async (req, res) => {
   try {
-    const { fullName,country, email, userType, ideaCategory, message } = req.body;
+    const { fullName, country, email, userType, ideaCategory, message } = req.body;
 
     const newUser = new EarlyAccessUser({
       fullName,
@@ -15,10 +15,11 @@ router.post('/register', async (req, res) => {
       message,
     });
 
-    const userExists = await User.findOne({ email });
-  if (userExists) {
-    return res.status(400).json({ error: "email_exists" });
-  }
+    // Corrected here: Using EarlyAccessUser to check for existing users
+    const userExists = await EarlyAccessUser.findOne({ email });
+    if (userExists) {
+      return res.status(400).json({ error: "email_exists" });
+    }
 
     await newUser.save();
     res.status(201).json({ message: 'Thanks for joining Fikra Market. We will contact you soon!' });

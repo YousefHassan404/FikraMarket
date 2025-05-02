@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const earlyAccessRoutes = require('../routes/users');
+const earlyAccessRoutes = require('./routes/users');
 require('dotenv').config(); // تحميل متغيرات البيئة
 
 const app = express();
