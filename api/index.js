@@ -12,15 +12,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// اتصال MongoDB (الإصدار الحديث)
-// mongoose.connect(process.env.MONGODB_URI)
-//   .then(() => console.log('تم الاتصال بـ MongoDB'))
-//   .catch(err => console.error('خطأ في اتصال MongoDB:', err));
+
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/FikraMarket')
   .then(() => console.log('تم الاتصال بـ MongoDB'))
   .catch(err => console.error('خطأ في اتصال MongoDB:', err));
 
 // Routes
+
 app.use('/api', earlyAccessRoutes);
 
 // بدء الخادم
