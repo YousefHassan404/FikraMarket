@@ -15,6 +15,11 @@ router.post('/register', async (req, res) => {
       message,
     });
 
+    const userExists = await User.findOne({ email });
+  if (userExists) {
+    return res.status(400).json({ error: "email_exists" });
+  }
+
     await newUser.save();
     res.status(201).json({ message: 'Thanks for joining Fikra Market. We will contact you soon!' });
   } catch (error) {
