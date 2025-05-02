@@ -17,6 +17,11 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/FikraMark
   .then(() => console.log('تم الاتصال بـ MongoDB'))
   .catch(err => console.error('خطأ في اتصال MongoDB:', err));
 
+
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
 // Routes
 
 app.use('/api', earlyAccessRoutes);
