@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-mongoose.connect('mongodb://localhost:27017/FikraMarket')
+mongoose.connect('mongodb://54.87.27.217:27017/FikraMarket')
   .then(() => console.log('تم الاتصال بـ MongoDB'))
   .catch(err => console.error('خطأ في اتصال MongoDB:', err));
 
