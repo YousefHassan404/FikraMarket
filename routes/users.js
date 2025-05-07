@@ -4,6 +4,7 @@ const EarlyAccessUser = require('../models/Users'); // Ensure that the model nam
 
 router.post('/register', async (req, res) => {
   try {
+    console.log(req.body);
     const { fullName, country, email, userType, ideaCategory, message } = req.body;
 
     const newUser = new EarlyAccessUser({
