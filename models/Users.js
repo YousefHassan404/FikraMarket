@@ -14,6 +14,7 @@ const EarlyAccessUserSchema = new mongoose.Schema({
     type: String,
     required: true,
     lowercase: true,
+    unique:true,
     trim: true,
   },
   userType: {
@@ -23,8 +24,7 @@ const EarlyAccessUserSchema = new mongoose.Schema({
   },
   ideaCategory: {
     type: String,
-    enum: ['entrepreneurship', 'tech', 'education', 'environment', 'other', null ,''],
-    default: null,
+    default: '',
   },
   message: {
     type: String,
