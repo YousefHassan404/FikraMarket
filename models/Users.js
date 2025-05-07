@@ -23,7 +23,7 @@ const EarlyAccessUserSchema = new mongoose.Schema({
   },
   ideaCategory: {
     type: String,
-    enum: ['entrepreneurship', 'tech', 'education', 'environment', 'other', null],
+    enum: ['entrepreneurship', 'tech', 'education', 'environment', 'other', null ,''],
     default: null,
   },
   message: {
